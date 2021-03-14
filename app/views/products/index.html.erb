@@ -1,0 +1,45 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Preço</td>
+            <td>Quantidade</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+            <tr>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+                <td><%= product.quantity %></td>
+                <td><%= button_to "Remover", product, method: :delete, class: "btn btn-danger btn-right", data: {confirm: "Tem certeza que deseja remover o produto #{product.name}?"} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Produtos com desconto</h4>
+</div>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Preço</td>
+            <td>Quantidade</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products_with_discount.each do |product| %>
+            <tr>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+                <td><%= product.quantity %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

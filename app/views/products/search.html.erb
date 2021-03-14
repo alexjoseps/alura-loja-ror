@@ -1,0 +1,21 @@
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Preço</td>
+            <td>Quantidade</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @products.each do |product| %>
+            <tr>
+                <td><%= product.name %></td>
+                <td><%= product.description %></td>
+                <td><%= product.price %></td>
+                <td><%= product.quantity %></td>
+                <td><%= button_to "Remover", product, method: :delete, class: "btn btn-danger", data: {confirm: "Tem certeza que deseja remover o produto #{product.name}?"} %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
