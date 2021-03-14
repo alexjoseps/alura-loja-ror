@@ -1,24 +1,6 @@
-# README
+## Alura Loja
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Projeto desenvolvido para a Formação Ruby on Rails da Alura, com operações simples para listar, criar, editar e remover produtos, utilizando SQLite3 para operações com o banco e bootstrap para estilizar as telas.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby version: 3.0.0
+* Ruby on Rails version: 6.0.3.5
