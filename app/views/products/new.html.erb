@@ -1,3 +1,9 @@
+<% @product.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+<% end %>
+
 <%= form_for Product.new do |form| %>
     <div class="row">
         <div class="col-sm-8">

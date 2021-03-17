@@ -12,10 +12,19 @@ class ProductsController < ApplicationController
     @products = ::Product.by_name(@name)
   end
 
-  def create
-    ::Product.create(product_params)
+  def new
+    @product = ::Product.new
+  end
 
-    redirect_to root_path
+  def create
+    @product = ::Product.new(product_params)
+
+    if @product.save
+      flash[:notice] = 'Produto cadastrado com sucesso'
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
