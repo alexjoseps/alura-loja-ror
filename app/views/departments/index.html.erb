@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<%= button_to 'Adicionar departamento', new_department_path, method: :get, class: "btn btn-default" %>
+
+<br>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.name %></td>
+        <td><%= button_to 'Mostrar', department, method: :get, class: "btn btn-primary btn-sm" %></td>
+        <td><%= button_to 'Editar', edit_department_path(department), method: :get, class: "btn btn-primary btn-sm" %></td>
+        <td><%= button_to 'Remover', department, method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Tem certeza que deseja remover o departamento #{department.name}?" } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

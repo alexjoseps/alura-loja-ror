@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   get 'products/search', to: 'products#search', as: :search_products
   resources :products, only: %w[new create destroy]
+  resources :departments
 end

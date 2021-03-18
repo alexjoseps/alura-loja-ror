@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      department:
+        one: &department Departamento
+    attributes:
+      product:
+        name: Nome
+        price: Preço

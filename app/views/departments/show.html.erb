@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @department.name %>
+</p>
+
+<%= button_to 'Voltar', departments_path, method: :get, class: "btn btn-default" %>
+<%= button_to 'Editar', edit_department_path(@department), method: :get, class: "btn btn-default" %>
