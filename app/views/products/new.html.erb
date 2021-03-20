@@ -4,7 +4,7 @@
     </div>
 <% end %>
 
-<%= form_for Product.new do |form| %>
+<%= form_for @product do |form| %>
     <div class="row">
         <div class="col-sm-8">
             <div class="form-group">
@@ -24,13 +24,24 @@
     </div>
     
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <%= form.label :department, "Departamento" %>
+                <%= form.collection_select :department_id, 
+                @departments, 
+                :id, 
+                :name, 
+                { prompt: 'Selecione um departamento' },
+                class: "form-control"%>
+            </div>
+        </div>
+        <div class="col-sm-2">
             <div class="form-group">
                 <%= form.label :price, "Preço" %>
                 <%= form.number_field :price, step: 0.01, class: "form-control"%>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <div class="form-group">
                 <%= form.label :quantity, "Quantidade" %>
                 <%= form.number_field :quantity, class: "form-control" %>

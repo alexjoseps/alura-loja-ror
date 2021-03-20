@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_318_015_235) do
+ActiveRecord::Schema.define(version: 20_210_319_235_323) do
   create_table 'departments', force: :cascade do |t|
     t.string 'name'
     t.datetime 'created_at', precision: 6, null: false
@@ -26,5 +26,7 @@ ActiveRecord::Schema.define(version: 20_210_318_015_235) do
     t.integer 'quantity'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'department_id'
+    t.index ['department_id'], name: 'index_products_on_department_id'
   end
 end

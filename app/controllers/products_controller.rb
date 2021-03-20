@@ -13,16 +13,36 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @departments = ::Department.all
     @product = ::Product.new
   end
 
   def create
+    @departments = ::Department.all
     @product = ::Product.new(product_params)
 
     if @product.save
       flash[:notice] = 'Produto cadastrado com sucesso'
       redirect_to root_path
     else
+      render :new
+    end
+  end
+
+  def edit
+    @product = ::Product.find(params[:id])
+    @departments = ::Department.all
+    render :new
+  end
+
+  def update
+    @product = ::Product.find(params[:id])
+    @departments = ::Department.all
+    if @product.update(product_params)
+      flash[:notice] = 'Produto editado com sucesso'
+      redirect_to root_path
+    else
+      @departments = ::Department.all
       render :new
     end
   end
@@ -41,6 +61,7 @@ class ProductsController < ApplicationController
       .permit(:name,
               :description,
               :price,
-              :quantity)
+              :quantity,
+              :department_id)
   end
 end
