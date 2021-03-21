@@ -1,9 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @department.name %>
-</p>
+<h2><%= @department.name %></h2>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Nome</td>
+            <td>Descrição</td>
+            <td>Departamento</td>
+            <td>Preço</td>
+            <td>Quantidade</td>
+            <td colspan="2"></td>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render @department_products %>
+    </tbody>
+</table>
 
 <%= button_to 'Voltar', departments_path, method: :get, class: "btn btn-default" %>
-<%= button_to 'Editar', edit_department_path(@department), method: :get, class: "btn btn-default" %>

@@ -1,0 +1,53 @@
+<% @product.errors.full_messages.each do |error| %>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+<% end %>
+
+<%= form_for @product do |form| %>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <%= form.label :name, "Nome" %>
+                <%= form.text_field :name, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <%= form.label :description, "Descrição" %>
+                <%= form.text_area :description, rows: 4, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <%= form.label :department, "Departamento" %>
+                <%= form.collection_select :department_id, 
+                @departments, 
+                :id, 
+                :name, 
+                { prompt: 'Selecione um departamento' },
+                class: "form-control"%>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <%= form.label :price, "Preço" %>
+                <%= form.number_field :price, step: 0.01, class: "form-control"%>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <%= form.label :quantity, "Quantidade" %>
+                <%= form.number_field :quantity, class: "form-control" %>
+            </div>
+        </div>
+    </div>
+
+    <%= form.submit action, class: "btn btn-primary" %>
+<% end %>

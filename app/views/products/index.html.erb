@@ -16,26 +16,7 @@
         </tr>
     </thead>
     <tbody>
-        <% @products.each do |product| %>
-            <tr>
-                <td><%= product.name %></td>
-                <td><%= product.description %></td>
-                <td><%= product.department.name %></td>
-                <td><%= product.price %></td>
-                <td><%= product.quantity %></td>
-                <td><%= button_to "Editar",
-                                    edit_product_path(product),
-                                    method: :get,
-                                    class: "btn btn-default btn-right btn-sm" %>
-                </td>
-                <td><%= button_to "Remover", 
-                                    product, 
-                                    method: :delete, 
-                                    class: "btn btn-danger btn-right btn-sm", 
-                                    data: {confirm: "Tem certeza que deseja remover o produto #{product.name}?"} %>
-                </td>
-            </tr>
-        <% end %>
+        <%= render @products %>
     </tbody>
 </table>
 <div class="alert alert-success" role="alert">
@@ -49,17 +30,10 @@
             <td>Departamento</td>
             <td>Preço</td>
             <td>Quantidade</td>
+            <td colspan="2"></td>
         </tr>
     </thead>
     <tbody>
-        <% @products_with_discount.each do |product| %>
-            <tr>
-                <td><%= product.name %></td>
-                <td><%= product.description %></td>
-                <td><%= product.department.name %></td>
-                <td><%= product.price %></td>
-                <td><%= product.quantity %></td>
-            </tr>
-        <% end %>
+        <%= render @products_with_discount %>
     </tbody>
 </table>

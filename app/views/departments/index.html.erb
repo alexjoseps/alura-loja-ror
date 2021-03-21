@@ -16,8 +16,8 @@
     <% @departments.each do |department| %>
       <tr>
         <td><%= department.name %></td>
-        <td><%= button_to 'Mostrar', department, method: :get, class: "btn btn-primary btn-sm" %></td>
-        <td><%= button_to 'Editar', edit_department_path(department), method: :get, class: "btn btn-primary btn-sm" %></td>
+        <td><%= button_to 'Ver produtos', department, method: :get, class: "btn btn-default btn-sm" %></td>
+        <td><%= button_to 'Editar', edit_department_path(department), method: :get, class: "btn btn-default btn-sm" %></td>
         <td><%= button_to 'Remover', department, method: :delete, class: "btn btn-danger btn-sm", data: { confirm: "Tem certeza que deseja remover o departamento #{department.name}?" } %></td>
       </tr>
     <% end %>

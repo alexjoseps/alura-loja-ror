@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
+  before_action :set_product, only: %i[update edit show destroy]
   def index
     @products = Product.order(:name).limit 6
     @products_with_discount = Product.order(:price).limit 1
@@ -18,42 +19,45 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @departments = ::Department.all
     @product = ::Product.new(product_params)
 
     if @product.save
       flash[:notice] = 'Produto cadastrado com sucesso'
       redirect_to root_path
     else
-      render :new
+      render_the :new
     end
   end
 
   def edit
-    @product = ::Product.find(params[:id])
-    @departments = ::Department.all
-    render :new
+    render_the :edit
   end
 
   def update
-    @product = ::Product.find(params[:id])
-    @departments = ::Department.all
     if @product.update(product_params)
       flash[:notice] = 'Produto editado com sucesso'
       redirect_to root_path
     else
-      @departments = ::Department.all
-      render :new
+      render_the :edit
     end
   end
 
   def destroy
-    ::Product.destroy params[:id]
+    @product.destroy
 
     redirect_to root_path
   end
 
   private
+
+  def set_product
+    @product = ::Product.find params[:id]
+  end
+
+  def render_the(view)
+    @departments = ::Department.all
+    render view
+  end
 
   def product_params
     params
