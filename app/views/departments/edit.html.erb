@@ -1,7 +1,5 @@
-<%= button_to 'Voltar', departments_path, method: :get, class: "btn btn-default" %>
-
 <h3>Editando departamento</h3>
 
-<%= render 'form', department: @department %>
+<%= render partial: 'form', locals: { action: "Atualizar", department: @department } %>
 
-<%= link_to 'Mostrar', @department %>
+<%= button_to 'Voltar', departments_path, method: :get, class: "btn btn-default" %>

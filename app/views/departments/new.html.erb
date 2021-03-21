@@ -1,5 +1,5 @@
 <h3>Novo departamento</h3>
 
-<%= render 'form', department: @department %>
+<%= render  partial: 'form', locals: { action: "Criar", department: @department } %>
 
-<%= link_to 'Voltar', departments_path %>
+<%= link_to 'Voltar', departments_path, class: "btn btn-default" %>

@@ -3,7 +3,11 @@ pt-BR:
     models:
       department:
         one: &department Departamento
+      product:
+        one: &product Produto
     attributes:
+      department:
+        name: Nome
       product:
         name: Nome
         price: Preço
